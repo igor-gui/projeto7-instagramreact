@@ -1,5 +1,5 @@
 import Corpo from "./Corpo";
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar";
 import FundoMobile from "./FundoMobile";
 
 export default function App() {
