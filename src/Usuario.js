@@ -1,24 +1,19 @@
 
-import { useState } from "react";
-
 
 export default function Usuario(props) {
 
-    const [nick, setNick] = useState(props.userName)
-    
-    function changeUserName() {
-        const newUser = (prompt('Qual seu usuário?'))
-        setNick(newUser)
-    }
+    let Nome = 'Igor';
 
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" alt="uiuiui" />
+            <img onClick={(e) => props.clickToChangePhoto()} src={props.perfil} alt="" />
             <div class="texto">
-                <strong>{props.name}</strong>
+                <strong>
+                    {Nome}
+                </strong>
                 <span>
-                    {nick}
-                    <ion-icon onClick={changeUserName} name="pencil"></ion-icon>
+                    {props.userName}
+                    <ion-icon onClick={props.changeUserName} name="pencil"></ion-icon>
                 </span>
             </div>
         </div>

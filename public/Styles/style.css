@@ -312,6 +312,11 @@ body {
   cursor: pointer;
 }
 
+.filledRed{
+  background-attachment: fixed;
+  background-color: red;
+}
+
 .logo-mobile, .instagram-mobile {
   display: none !important;
 }

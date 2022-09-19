@@ -6,26 +6,30 @@ import { useState } from "react";
 export default function SideBar() {
     
     
-    const [nome, setNome] = useState('name')
+    const [profImg, setProfImg] = useState('https://www.imagensempng.com.br/wp-content/uploads/2021/08/Icone-usuario-Png-1024x1024.png');
 
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState("user")
 
-    function Changename() {
-        const nomeNovo = (prompt('Que nome deseja usar?'))
-        setNome(nomeNovo);
-        return nomeNovo             
-    }
 
 
     function changeUserName() {
         const newUser = (prompt('Qual seu usuário?'))
-        setUser(newUser);
+        setUser(newUser)
+        return newUser
     }
+
+    function changePhoto(){
+        const fotoNova = prompt('Cole o link para sua nova foto de perfil')
+        setProfImg(fotoNova)
+    }
+
+
+    
 
     return (
         <div class="sidebar">
-
-            <Usuario name={Changename} userName={user} />
+            
+            <Usuario perfil={profImg}  clickToChangePhoto={changePhoto}  changeUserName={changeUserName} userName={user} />
             <Sugestoes />
             <Links />
             <Copyright />

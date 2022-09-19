@@ -10,7 +10,7 @@ export default function Posts() {
             contentImg: "assets/img/gato-telefone.svg",
             liker: "respondeai",
             likerPhoto: "assets/img/respondeai.svg",
-            others: 101.523
+            others: 101523
         },
         {
             userImg: "assets/img/barked.svg",
@@ -18,7 +18,7 @@ export default function Posts() {
             contentImg: "assets/img/dog.svg",
             liker: "adorable_animals",
             likerPhoto: "assets/img/adorable_animals.svg",
-            others: 99.159
+            others: 99159
         }
     ]
 

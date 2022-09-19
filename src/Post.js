@@ -1,5 +1,24 @@
+import { useState } from "react"
 
 export default function Post(banana) {
+
+    const [manyLikes, setManyLikes] = useState(banana.others)
+
+    const [className, setclassName] = useState('')
+
+    function curtir() {
+        if (className === "filledRed") {
+            const newClass = "";
+            setclassName(newClass);
+            setManyLikes(manyLikes - 1)
+        } else {
+            const newClass = "filledRed";
+            setclassName(newClass);
+            setManyLikes(manyLikes + 1)
+        }
+    }
+
+
     function Topo(props) {
         return (
             <div class="topo">
@@ -16,23 +35,36 @@ export default function Post(banana) {
 
     function Conteudo(props) {
         return (
-            <div class="conteudo">
+            <div onClick={curtir} class="conteudo">
                 <img src={props.foto} />
             </div>
         )
     }
 
     function Fundo(props) {
+        const [ionName, setIonName] = useState("bookmark-outline")
+
+
+        function savePost() {
+            if (ionName === "bookmark-outline") {
+                const newIonName = "bookmark"
+                setIonName(newIonName)
+            } else {
+                const newIonName = "bookmark-outline"
+                setIonName(newIonName)
+            }
+        }
+
         return (
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon onClick={curtir} class={className} name="heart-outline"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon onClick={savePost} name={ionName}></ion-icon>
                     </div>
                 </div>
 
@@ -46,11 +78,12 @@ export default function Post(banana) {
         )
     }
 
+    
     return (
         <div class="post">
             <Topo imagem={banana.userImg} usuario={banana.nick} />
             <Conteudo foto={banana.contentImg} />
-            <Fundo liker={banana.liker} likerPhoto={banana.likerPhoto} others={banana.others}/>
+            <Fundo liker={banana.liker} likerPhoto={banana.likerPhoto} others={manyLikes} />
         </div>
     )
 }
