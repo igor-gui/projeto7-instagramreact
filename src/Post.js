@@ -3,16 +3,19 @@ import { useState } from "react"
 export default function Post(banana) {
 
     const [manyLikes, setManyLikes] = useState(banana.others)
+    const [heartIonName, setHeartIonName] = useState("heart-outline")
 
     const [className, setclassName] = useState('')
 
     function curtir() {
         if (className === "filledRed") {
             const newClass = "";
+            setHeartIonName("heart-outline")
             setclassName(newClass);
             setManyLikes(manyLikes - 1)
         } else {
             const newClass = "filledRed";
+            setHeartIonName("heart")
             setclassName(newClass);
             setManyLikes(manyLikes + 1)
         }
@@ -59,7 +62,7 @@ export default function Post(banana) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon onClick={curtir} class={className} name="heart-outline"></ion-icon>
+                        <ion-icon onClick={curtir} class={className} name={heartIonName}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>

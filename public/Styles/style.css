@@ -313,8 +313,7 @@ body {
 }
 
 .filledRed{
-  background-attachment: fixed;
-  background-color: red;
+  color: red;
 }
 
 .logo-mobile, .instagram-mobile {
